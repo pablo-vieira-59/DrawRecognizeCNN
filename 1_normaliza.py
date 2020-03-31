@@ -14,17 +14,14 @@ data = [data_app, data_axe, data_boo, data_bic, data_bus]
 for label in data:
     for image in label:
         image = image.astype(float)
-        # for i in range(0,len(image)):
-        #image[i] = image[i]/255.0
+        image = image/255.0
         image = image.reshape([28, 28])
-        cv2.imshow('window', image)
-        cv2.waitKey(0)
     print('Base Concluida')
 
 # Salva dados
 print('Salvando Dados')
-np.save('npy_normalized_data/apple.npy', data_app)
-np.save('npy_normalized_data/axe.npy', data_axe)
-np.save('npy_normalized_data/book.npy', data_boo)
-np.save('npy_normalized_data/bicycle.npy', data_bic)
-np.save('npy_normalized_data/bus.npy', data_bus)
+np.save('normalized_data/apple.npy', data_app)
+np.save('normalized_data/axe.npy', data_axe)
+np.save('normalized_data/book.npy', data_boo)
+np.save('normalized_data/bicycle.npy', data_bic)
+np.save('normalized_data/bus.npy', data_bus)
