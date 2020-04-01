@@ -10,11 +10,11 @@ data_axe = np.load('npy_data/axe.npy')
 
 data = [data_app, data_axe, data_boo, data_bic, data_bus]
 
-# Normaliza valor dos pixels entre 0-1
+# Normaliza valor dos pixels entre -1 e 1
 for label in data:
     for image in label:
         image = image.astype(float)
-        image = image/255.0
+        image = (image - 127.5) * 127.5
         image = image.reshape([28, 28])
     print('Base Concluida')
 

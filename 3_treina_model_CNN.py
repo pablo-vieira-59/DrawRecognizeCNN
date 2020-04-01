@@ -1,33 +1,37 @@
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-from keras import layers
-from keras import optimizers
-import tensorflow as tf
-import numpy as np
 import keras
+import numpy as np
+
+from keras import optimizers
+from keras.models import Sequential
+from keras.layers import Conv2D, Dense, MaxPool2D, Flatten, Dropout, LeakyReLU, BatchNormalization
+
 
 def BuildModel():
-    adam = optimizers.Adam(learning_rate=0.0001)
-
-    layer_in = layers.Input(shape=(28, 28, 1), name='input')
-    y = layers.Conv2D(filters=64, kernel_size=(7, 7), activation='relu')(layer_in)
-    y = layers.MaxPool2D(pool_size=(2, 2))(y)
+    model = Sequential()
+    model.add(Conv2D(filters=64, kernel_size=(7, 7), activation='relu', input_shape=[28, 28, 1]))
+    model.add(MaxPool2D(pool_size=2))
     #14x14x64
-    y = layers.Conv2D(filters=128, kernel_size=(3, 3), activation='relu')(y)
-    y = layers.MaxPool2D(pool_size=(2, 2))(y)
+
+    model.add(Conv2D(filters=128, kernel_size=(3, 3), activation='relu'))
+    model.add(MaxPool2D(pool_size=2))
     #7x7x128
-    y = layers.Flatten()(y)
-    y = layers.Dense(256, activation='tanh')(y)
-    y = layers.Dropout(0.4)(y)
+
+    model.add(Flatten())
+    model.add(Dense(256, activation='tanh'))
+    model.add(Dropout(0.4))
     #256x1
-    y = layers.Dense(256, activation='tanh')(y)
-    y = layers.Dropout(0.2)(y)
+
+    model.add(Dense(256, activation='tanh'))
+    model.add(Dropout(0.4))
     #256x1
-    layer_out = layers.Dense(5, activation='softmax')(y)
+
+    model.add(Dense(5, activation='softmax'))
     #5x1
 
-    model = keras.Model(inputs=layer_in, outputs=layer_out)
+    adam = optimizers.Adam(learning_rate=0.0001)
     model.compile(optimizer=adam, loss='categorical_crossentropy',metrics=['accuracy'])
     return model
 
