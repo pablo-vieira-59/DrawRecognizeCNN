@@ -1,0 +1,198 @@
+body{
+    margin: 0px;
+    background-color: #c0c0c0;
+    font-family: 'Atomic Age', cursive;
+}
+
+.banner{
+    background-image: linear-gradient(140deg,#ff2200 5%,#cc0300 30%);
+    align-items: center;
+}
+
+.banner div{
+    width: 100%;
+    text-align: center;
+    text-shadow: 0px 3px 5px #272727;
+    background: -webkit-linear-gradient(-90deg, #c0c0c0, white , #757575, #3d3d3d);
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 4px transparent;
+    color: #232d2d;
+    color: rgb(207, 207, 207);
+}
+
+.title{
+    width: 100%;
+    font-size: 64px;
+}
+
+.chrome-white{
+    background-color: #f5f5f5;
+    height: 5px;
+}
+
+.chrome-gray{
+    background-image: linear-gradient(45deg,#d1d1d1,#a4a4a4);
+    display: flex;
+}
+
+.chrome-black{
+    background-color: #757575;
+    height: 5px;
+    box-shadow: 0px 3px 5px #272727;
+}
+
+.nav-bar{
+    display: flex;
+    padding-left: 30px;
+    align-items: center;
+}
+
+.nav-button{
+    padding: 2px 15px 2px 15px;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+
+.nav-button a{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-button:hover{
+    background-color: #274d6e;
+}
+
+
+.main{
+    display: flex;
+    
+    background-color: white;
+}
+
+.left-side{
+    padding: 2px;
+    width: 33%;
+    height: 100%;
+}
+
+.right-side{
+    padding: 2px;
+    height: 100%;
+    flex-grow: 1;
+}
+
+
+.service-component{
+    margin-left: 15%;
+    margin-top: 0px;
+    width: 70%;
+    background-color: white;
+    border-color: #c0c0c0;
+    border-style: solid;
+    border-width: 2px;
+    display: flex;
+    border-top: 0px;
+    font-family: 'Atomic Age' , 'cursive';
+    box-shadow: 0px 3px 5px #000000;
+    height: 50px;
+}
+
+.icon-box{
+    width: 10%;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.label-box{
+    padding-left: 3%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    width: 68%;
+}
+
+.status-box{
+    display: flex;
+    align-items: center;
+    color: red;
+    font-size: 35px;
+    width: 12%;
+    margin-right: 5%;
+}
+
+.camera-box{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15%;
+    width: 70%;
+    box-shadow: 0px 3px 5px #000000;
+    background-image: url("wood.jpg");
+    background-repeat: repeat;
+    background-size: 128px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.tv-deco{
+    width: 80%;
+    align-self: center;
+    padding: 5px;
+    border-radius: 50px;
+    background-image: linear-gradient(180deg,#c2c2c2,#f3f3f3,#808080,#303030);
+    margin: 0% 10% 0% 10%;
+}
+
+.tv-deco-mid{
+    align-self: center;
+    padding: 15px;
+    border-radius: 45px;
+    background-color: #afafaf;
+}
+
+.tv-deco-in{
+    align-self: center;
+    padding: 5px;
+    border-radius: 50px;
+    background-image: linear-gradient(-45deg,#636363,#303030);
+}
+
+.camera-box img{
+    border-radius: 45px;
+}
+
+.h2-deco{
+    margin-left: 15%;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: 0px;
+    margin-top: 20px;
+    width: 70%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #c0c0c0;
+    background-color: #4fb895;
+    box-shadow: 0px 3px 5px #000000;
+}
+
+.h2-deco h2{
+    padding: 10px;
+    font-size: 32px;
+    margin: 0px;
+    color: rgb(207, 207, 207);
+    text-shadow: 1px 1px 3px #000000;
+    background: -webkit-linear-gradient(-90deg, #c0c0c0, white , #757575, #3d3d3d);
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 3px transparent;
+}
+
+.h2-deco p{
+    padding: 5px;
+    color: #c0c0c0;
+    line-height: 18px;
+    font-size: 15px;
+}

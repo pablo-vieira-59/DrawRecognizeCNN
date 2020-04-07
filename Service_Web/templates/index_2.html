@@ -1,0 +1,114 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Atomic+Age&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index_style.css')}}">
+<link rel="stylesheet" type="text/css" href="index_style_2.css">
+
+<html>
+<header>
+    <title>Home</title>
+</header>
+
+<body>
+    <div class="float-bar">
+        <div class="banner">
+            <div class="title">Mr.BotRob</div>
+        </div>
+
+        <div class="chrome-white"></div>
+        <div class="chrome-gray">
+            <nav class="nav-bar">
+                <div class="nav-button">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="nav-button">
+                    <a href="components.html">Componentes</a>
+                </div>
+                <div class="nav-button">
+                    Imagens
+                </div>
+                <div class="nav-button">
+                    Sobre
+                </div>
+            </nav>
+        </div>
+        <div class="chrome-black"></div>
+    </div>
+
+    <div class="main">
+        <div class="left-side">
+            <div class="services-box">
+                <div class="h2-deco">
+                    <h2> Serviços : </h2>
+                    <p>Aqui é a lista de Serviços disponiveis no Robô.</p>
+                </div>
+
+                <div class="service-component">
+                    <div class="icon-box"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
+                    <div class="label-box"><label>Camera</label></div>
+                    <div class="status-box" id="camera">
+                        <i id="camera-icon" class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="service-component">
+                    <div class="icon-box"><i class="fa fa-podcast" aria-hidden="true"></i></div>
+                    <div class="label-box"><label>Sensor</label></div>
+                    <div class="status-box" id="sensor">
+                        <i id="sensor-icon" class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="service-component">
+                    <div class="icon-box"><i class="fa fa-battery-full" aria-hidden="true"></i></div>
+                    <div class="label-box"><label>Bateria</label></div>
+                    <div class="status-box" id="bateria">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="service-component">
+                    <div class="icon-box"><i class="fa fa-microphone" aria-hidden="true"></i></div>
+                    <div class="label-box"><label>Microfone</label></div>
+                    <div class="status-box" id="microfone">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="service-component">
+                    <div class="icon-box"><i class="fa fa-volume-up" aria-hidden="true"></i></div>
+                    <div class="label-box"><label>Som</label></div>
+                    <div class="status-box" id="som">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="right-side">
+            <div class="h2-deco">
+                <h2> Feed : </h2>
+            </div>
+
+            <div class="camera-box">
+                <div class="tv-deco">
+                    <div class="tv-deco-mid">
+                        <div class="tv-deco-in">
+                            <img id="cam-feed" style="-webkit-user-select: none;margin: auto;" src="screen.gif"
+                                width="460" height="340">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
