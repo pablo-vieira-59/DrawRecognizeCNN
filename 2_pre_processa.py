@@ -4,11 +4,11 @@ import cv2
 from sklearn.model_selection import train_test_split
 
 # Carrega arquivo com imagens no formato npy
-data_bic = np.load('npy_data/bicycle.npy')
-data_app = np.load('npy_data/apple.npy')
-data_bus = np.load('npy_data/bus.npy')
-data_boo = np.load('npy_data/book.npy')
-data_axe = np.load('npy_data/axe.npy')
+data_bic = np.load('normalized_data/bicycle.npy')
+data_app = np.load('normalized_data/apple.npy')
+data_bus = np.load('normalized_data/bus.npy')
+data_boo = np.load('normalized_data/book.npy')
+data_axe = np.load('normalized_data/axe.npy')
 
 # Seleciona a base com menor quantidade
 sizes = [len(data_app), len(data_axe), len(
@@ -66,12 +66,6 @@ print('Quantidade por classe :', '\n', data['classes'].value_counts(), '\n')
 # Divide dados de teste e treino , estratificado
 X_train, X_test, Y_train, Y_test = train_test_split(
     X, Y, test_size=0.3, random_state=0, stratify=data['classes'])
-
-print(Y_train['apple'].value_counts())
-print(Y_train['axe'].value_counts())
-print(Y_train['bicycle'].value_counts())
-print(Y_train['book'].value_counts())
-print(Y_train['bus'].value_counts())
 
 # Salva Arquivos
 print('Salvando dados')
