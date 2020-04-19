@@ -21,6 +21,8 @@ def resize_datasets(data_app :np.array, data_axe :np.array, data_bic :np.array, 
         data_bic), len(data_boo), len(data_bus)]
     print('Tamanho ajustado : ', sizes, '\n')
 
+    return data_app, data_axe, data_bic, data_boo, data_bic
+
 def generate_labels(data_app :np.array, data_axe :np.array, data_bic :np.array, data_boo :np.array, data_bus :np.array):
     # Adiciona labels
     labels = []
@@ -66,6 +68,9 @@ data_app = np.load('normalized_data/apple.npy')
 data_bus = np.load('normalized_data/bus.npy')
 data_boo = np.load('normalized_data/book.npy')
 data_axe = np.load('normalized_data/axe.npy')
+
+# Reajusta dataset
+data_app, data_axe, data_bic, data_boo, data_bic = resize_datasets(data_app, data_axe, data_bic, data_boo, data_bus)
 
 # Junta imagens das classes em um array só
 data = np.concatenate((data_app, data_axe, data_bic, data_boo, data_bus))
