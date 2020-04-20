@@ -1,10 +1,10 @@
-from flask import Flask, make_response, render_template, Request, jsonify
-import json
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 import numpy as np
-import requests
-import keras
-import cv2
 import urllib.request as ur
+import json , requests, keras , cv2
+from flask import Flask, make_response, render_template, Request, jsonify
 
 
 app = Flask(__name__)
@@ -81,6 +81,6 @@ def make_prediction(img):
 
 if __name__ == "__main__":
     url = ""
-    model = keras.models.load_model('../../saved_models/model_1.mdl')
+    model = keras.models.load_model('../saved_models/model_1.mdl')
     app.run(debug=True,port=80,host="0.0.0.0")
     

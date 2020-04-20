@@ -3,45 +3,60 @@ import pandas as pd
 import cv2
 from sklearn.model_selection import train_test_split
 
-def resize_datasets(data_app :np.array, data_axe :np.array, data_bic :np.array, data_boo :np.array, data_bus :np.array):
+def get_sizes(datasets :list):
+    sizes = []
+    for dataset in datasets:
+        size = len(dataset)
+        sizes.append(size)
+    return sizes
+
+def resize_datasets(datasets :list, max_val :int):
+    rez_datasets = []
+    for dataset in datasets:
+        d = dataset[0:max_val, :]
+        rez_datasets.append(d)
+    return rez_datasets
+
+def load_datasets(paths :list):
+    datasets = []
+    for path in paths:
+        dataset = np.load(path)
+        datasets.append(dataset)
+    return datasets
+
+def generate_labels(datasets :list):
+    # Adiciona labels
+    classes = []
+    for i in range(0,len(datasets)):
+        labels = np.ones(len(datasets[i]))
+        labels = labels + i
+        classes = np.concatenate([classes, labels])
+    return classes
+
+def prepare_dataset(datasets :list):
+    # Calcula Tamanho dos datasets
+    sizes = get_sizes(datasets)
+    
     # Seleciona a base com menor quantidade
-    sizes = [len(data_app), len(data_axe), len(
-        data_bic), len(data_boo), len(data_bus)]
-    m_value = sizes[np.argmin(sizes)]
-    print('Menor quantidade de samples : ', m_value)
+    max_value = sizes[np.argmin(sizes)]
+    print('Menor quantidade de samples : ', max_value)
+
+    # Ajusta valor max para multiplo de n_batch
+    max_value = 100000
 
     # Ajusta bases para mesma quantidade
-    data_app = data_app[0:m_value-1, :]
-    data_axe = data_axe[0:m_value-1, :]
-    data_bic = data_bic[0:m_value-1, :]
-    data_boo = data_boo[0:m_value-1, :]
-    data_bus = data_bus[0:m_value-1, :]
+    rez_datasets = resize_datasets(datasets, max_value)
 
-    sizes = [len(data_app), len(data_axe), len(
-        data_bic), len(data_boo), len(data_bus)]
+    sizes = get_sizes(rez_datasets)
     print('Tamanho ajustado : ', sizes, '\n')
 
-    return data_app, data_axe, data_bic, data_boo, data_bic
+    # Gera Labels
+    labels = generate_labels(rez_datasets)
 
-def generate_labels(data_app :np.array, data_axe :np.array, data_bic :np.array, data_boo :np.array, data_bus :np.array):
-    # Adiciona labels
-    labels = []
-    for image in data_app:
-        labels.append(1)
+    # Junta imagens das classes em um array só
+    data = np.concatenate(rez_datasets)
 
-    for image in data_axe:
-        labels.append(2)
-
-    for image in data_bic:
-        labels.append(3)
-
-    for image in data_boo:
-        labels.append(4)
-
-    for image in data_bus:
-        labels.append(5)
-
-    return labels
+    return data, labels
 
 def generate_train_data(hot_encoding :bool, labels :list, data :np.array):
     # One Hot Encoding
@@ -63,20 +78,12 @@ def generate_train_data(hot_encoding :bool, labels :list, data :np.array):
     return X, Y
 
 # Carrega arquivo com imagens no formato npy
-data_bic = np.load('normalized_data/bicycle.npy')
-data_app = np.load('normalized_data/apple.npy')
-data_bus = np.load('normalized_data/bus.npy')
-data_boo = np.load('normalized_data/book.npy')
-data_axe = np.load('normalized_data/axe.npy')
+paths = ['npy_data/apple.npy','npy_data/axe.npy','npy_data/bicycle.npy','npy_data/book.npy','npy_data/bus.npy']
+paths_n = ['normalized_data/apple.npy','normalized_data/axe.npy','normalized_data/bicycle.npy','normalized_data/book.npy','normalized_data/bus.npy']
+datasets = load_datasets(paths_n)
 
 # Reajusta dataset
-data_app, data_axe, data_bic, data_boo, data_bic = resize_datasets(data_app, data_axe, data_bic, data_boo, data_bus)
-
-# Junta imagens das classes em um array só
-data = np.concatenate((data_app, data_axe, data_bic, data_boo, data_bus))
-
-# Gera Labels
-labels = generate_labels(data_app, data_axe, data_bic, data_boo, data_bus)
+data, labels = prepare_dataset(datasets)
 
 # Gera dados de treino
 X, Y = generate_train_data(False, labels, data)
@@ -84,8 +91,7 @@ print('Formato X:', X.shape)
 print('Formato Y:', Y.shape)
 
 # Divide dados de teste e treino , estratificado
-X_train, X_test, Y_train, Y_test = train_test_split(
-    X, Y, test_size=0.3, random_state=0, stratify=Y)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.3, random_state=0, stratify=Y)
 
 # Salva Arquivos
 print('Salvando dados')
