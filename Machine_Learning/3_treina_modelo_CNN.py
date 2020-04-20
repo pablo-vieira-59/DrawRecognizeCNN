@@ -11,7 +11,7 @@ from keras.models import Sequential
 from keras.layers import Conv2D, Dense, MaxPool2D, Flatten, Dropout, LeakyReLU, BatchNormalization
 
 # Constroi Modelo CNN
-def BuildModel(n_filters :list):
+def BuildModel():
     model = Sequential()
     model.add(Conv2D(filters=64, kernel_size=(7, 7), activation='relu', input_shape=[28, 28, 1]))
     model.add(MaxPool2D(pool_size=2))
@@ -45,11 +45,11 @@ def CompleteFit(X,Y,X_v,Y_v, n_train :int):
         # Começa Treino
         start = time.time()
         history = model.fit(x=X, y=Y, batch_size=1000, epochs=5, verbose=1, validation_data=(X_v,Y_v))
-        elapsed = (time.time() - start)/60
+        elapsed = time.time() - start
 
         # Salva Historico
         dataframe = pd.DataFrame(history.history)
-        dataframe.to_csv('training_data_' + str(i+1) + '_' + str(elapsed) + '.csv', index=None)
+        dataframe.to_csv('training_data_%d_%.2f_seconds.csv' % (i, elapsed), index=None)
 
 #def GridSearchFit():
     #n_filters = [[16,32,64,128],[32,64,128,256],[16,32,64,128],[16,32,64,128]]

@@ -86,7 +86,7 @@ datasets = load_datasets(paths_n)
 data, labels = prepare_dataset(datasets)
 
 # Gera dados de treino
-X, Y = generate_train_data(False, labels, data)
+X, Y = generate_train_data(True, labels, data)
 print('Formato X:', X.shape)
 print('Formato Y:', Y.shape)
 

@@ -33,7 +33,6 @@ datasets = load_datasets(paths)
 
 # Normaliza valor dos pixels entre -1 e 1
 datasets = normalize(datasets)
-print(datasets[0][0])
 
 # Salva dados
 save_paths = ['normalized_data/apple.npy','normalized_data/axe.npy','normalized_data/bicycle.npy','normalized_data/book.npy','normalized_data/bus.npy']
