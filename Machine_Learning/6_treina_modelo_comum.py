@@ -3,6 +3,9 @@ import numpy as np
 import time
 
 from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import f1_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import accuracy_score
 
 def load_dataset():
     X = np.load('training_data/X_train.npy')
@@ -34,7 +37,24 @@ model = GaussianNB()
 # Treinando Modelo
 train(model, X, Y, n_batch=1000)
 
-# Calculando Acuracia com dados de Validação
-print('Calculando Acuracia ... ')
-score = model.score(testX, testY) * 100
-print('Acuracia:%.2f' % (score))
+# Fazendo Predições
+print('Calculando Metricas ...')
+start = time.time()
+y_pred = model.predict(testX)
+end = time.time()
+elapsed = end - start
+print('Tempo de Classificação :%.2f segundos' % (elapsed))
+
+# Calculando F1 Score
+score_f1 = f1_score(testY, y_pred, average='weighted')
+
+# Calculando Precision Score
+score_pre = precision_score(testY, y_pred, average='weighted')
+
+# Calculando Accuracy Score
+score_acc = accuracy_score(testY, y_pred)
+
+# Salvando Metricas
+scores = [[score_f1, score_pre, score_acc]]
+data = pd.DataFrame(scores, columns=['F1 Score','Precision Score', 'Accuracy Score'])
+data.to_csv('metrics/naive_bayes_scores.csv', index=False, sep=';')
