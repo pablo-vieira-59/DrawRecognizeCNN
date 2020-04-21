@@ -1,0 +1,16 @@
+1 -  Obtendo dados
+Todos os dados foram obtidos do site da google , foram obtidos arquivos de 5 classes : Maçã , Machado , Bicicleta , Livro , Onibus. Os arquivos estão no formato npy, e foram previamente ajustados.
+
+2 - Normalização
+Uma vez carregados os arquivos , foi feita a normalização dos valores , ou seja , nos dados originais os valores variam de 0 a 255 , os dados foram normalizados para -1 e 1.
+
+3 - Pre Processamento
+Primeiro foi analisado qual o tamanho dos dados , ou seja , a quantidade de imagens de cada classes ha em cada arquivo , depois a quantidade foi ajustada para a quantidade da classe que continha menos imagens. posteriormente todas as bases foram ajustadas para uma quantidade de 100.000 imagens para que facilitasse o treinamento em batch, pois 100.000 é um multiplo de 1000 , que foi o numero de imagens por batch definido (Questão de tamanho de memoria).
+
+4 - Treinamento CNN
+Foi Construido um modelo de Rede Neural utilizando o Keras e Tensorflow 2.0. Foram utilizadas as camadas Conv2D , MaxPool e Dense.
+Primeiro foi feito um grid search para achar os melhores parametros para cada camada , uma vez finalizado o grid search e os melhores parametros obtidos , foi feito o treinamento do modelo final com mais epocas, alem de ser repetido 30 vezes para uma melhor analise das metricas.
+
+5 - Treinamento Algoritmo Comum
+
+6 - Analise estatisca das Metricas 
