@@ -82,6 +82,9 @@ paths = ['npy_data/apple.npy','npy_data/axe.npy','npy_data/bicycle.npy','npy_dat
 paths_n = ['normalized_data/apple.npy','normalized_data/axe.npy','normalized_data/bicycle.npy','normalized_data/book.npy','normalized_data/bus.npy']
 datasets = load_datasets(paths_n)
 
+for dataset in datasets:
+    print(len(dataset))
+
 # Reajusta dataset
 data, labels = prepare_dataset(datasets)
 

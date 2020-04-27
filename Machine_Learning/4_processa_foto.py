@@ -44,6 +44,12 @@ for img in images:
     # Redimensiona imagem
     img = cv2.resize(img, (28, 28))
 
+    # Normaliza Imagem
+    img = (img-127.5) / 127.5
+
+    # Formata Imagem
+    img = np.reshape(img, (28,28,1))
+
     # Salva Imagem
     np.save('cam_images/' + labels[i] + '.npy', img)
     i += 1

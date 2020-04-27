@@ -5,7 +5,7 @@ import numpy as np
 import keras
 
 # Load model
-model = keras.models.load_model('saved_models/model_1.mdl')
+model = keras.models.load_model('saved_models/main_model.h5')
 
 # Carrega fotos de teste
 img_app = np.load('cam_images/apple.npy')
@@ -15,16 +15,12 @@ img_boo = np.load('cam_images/book.npy')
 img_bus = np.load('cam_images/bus.npy')
 
 images = [img_app, img_axe, img_bic, img_boo, img_bus]
-
-# Tranforma para shape de input
-for img in images:
-    img = img.reshape([28, 28])
-images = np.asarray(images)
-images = images.reshape([-1, 28, 28, 1])
+images = np.array(images)
 
 # Faz Predição
 labels = ['apple', 'axe', 'bicycle', 'book', 'bus']
-prediction = model.predict(images)
+#prediction = model.predict_classes(images)
+prediction = model.predict(images) * 100
 for pred in prediction:
-    print(labels[np.argmax(pred)])
-    # print(pred)
+    #print(labels[np.argmax(pred)])
+    print(pred)

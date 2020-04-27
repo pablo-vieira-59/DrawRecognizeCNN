@@ -34,6 +34,7 @@
     </div>
 
     <div class="main">
+
         <div class="left-side">
             <div class="services-box">
                 <div class="h2-deco">
@@ -46,8 +47,8 @@
                         <div class="box-rot">Maçã</div>
                     </div>
                     <div class="label-box"><label>Maçã</label></div>
-                    <div class="status-box" id="camera">
-                        <i id="camera-icon" class="fa fa-times-circle" aria-hidden="true"></i>
+                    <div class="status-box" id="apple">
+                        <i id="apple-icon" class="fa fa-times-circle" aria-hidden="true"></i>
                     </div>
                 </div>
 
@@ -56,8 +57,8 @@
                         <div class="box-rot">Machado</div>
                     </div>
                     <div class="label-box"><label>Machado</label></div>
-                    <div class="status-box" id="sensor">
-                        <i id="sensor-icon" class="fa fa-times-circle" aria-hidden="true"></i>
+                    <div class="status-box" id="axe">
+                        <i id="axe-icon" class="fa fa-times-circle" aria-hidden="true"></i>
                     </div>
                 </div>
 
@@ -65,8 +66,9 @@
                     <div class="service-black-box">
                         <div class="box-rot">Bicicleta</div>
                     </div>
-                    <div class="status-box" id="bateria">
-                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    <div class="label-box"><label>Bicicleta</label></div>
+                    <div class="status-box" id="bicycle">
+                        <i id="bicycle-icon" class="fa fa-times-circle" aria-hidden="true"></i>
                     </div>
                 </div>
 
@@ -75,36 +77,39 @@
                         <div class="box-rot">Livro</div>
                     </div>
                     <div class="label-box"><label>Livro</label></div>
-                    <div class="status-box" id="microfone">
-                        <i id="microfone-icon" class="fa fa-times-circle" aria-hidden="true"></i>
+                    <div class="status-box" id="book">
+                        <i id="book-icon" class="fa fa-times-circle" aria-hidden="true"></i>
                     </div>
                 </div>
-
                 
                 <div class="service-component">
                     <div class="service-black-box">
                         <div class="box-rot">Onibus</div>
                     </div>
                     <div class="label-box"><label>Onibus</label></div>
-                    <div class="status-box" id="chatbot">
-                        <i id="chatbot-icon" class="fa fa-times-circle" aria-hidden="true"></i>
+                    <div class="status-box" id="bus">
+                        <i id="bus-icon" class="fa fa-times-circle" aria-hidden="true"></i>
                     </div>
                 </div>
 
             </div>
-
         </div>
+                
         <div class="right-side">
             <div class="h2-deco">
                 <h2> Feed : </h2>
             </div>
 
-
             <div class="camera-box">
                 <img id="cam-feed" style="-webkit-user-select: none;margin: auto;"
                     src="{{url_for('static', filename='img/screen.gif')}}" width="600" height="400">
             </div>
+
+            <div>
+                <button onclick="captureImage()">Capturar Imagem</button>
+            </div>
         </div>
+
     </div>
 
 </body>
