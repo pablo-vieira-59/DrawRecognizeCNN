@@ -101,13 +101,14 @@
             </div>
 
             <div class="camera-box">
-                <img id="cam-feed" style="-webkit-user-select: none;margin: auto;"
-                    src="{{url_for('static', filename='img/screen.gif')}}" width="600" height="400">
+                <video id="video" autoplay="true"></video>
+                <canvas id="canvas" class="video-style" width="640" height="480"></canvas>
             </div>
 
-            <div>
-                <button onclick="captureImage()">Capturar Imagem</button>
+            <div class="controller">
+                <button id="snap" onclick="captureImage()">Capturar Imagem</button>
             </div>
+
         </div>
 
     </div>

@@ -18,6 +18,11 @@ a:visited{
     width: 100%;
 }
 
+.video-style{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
 .banner{
     background-color: #FFD139;
     padding: 7px;
@@ -147,7 +152,7 @@ a:visited{
 .camera-box{
     align-self: center;
     margin-left: 15%;
-    width: 600px;
+    width: 640px;
     margin-top: 5px;
     border-color: #b1b1b1;
     border-width: 3px;
