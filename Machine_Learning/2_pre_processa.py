@@ -89,7 +89,7 @@ for dataset in datasets:
 data, labels = prepare_dataset(datasets)
 
 # Gera dados de treino
-X, Y = generate_train_data(True, labels, data)
+X, Y = generate_train_data(hot_encoding=True, labels=labels, data=data)
 print('Formato X:', X.shape)
 print('Formato Y:', Y.shape)
 

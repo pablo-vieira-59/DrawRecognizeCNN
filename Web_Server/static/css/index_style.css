@@ -18,11 +18,6 @@ a:visited{
     width: 100%;
 }
 
-.video-style{
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-}
-
 .banner{
     background-color: #FFD139;
     padding: 7px;
@@ -158,6 +153,8 @@ a:visited{
     border-width: 3px;
     padding: 5px;
     box-shadow: #757575 0px 0px 5px;
+    /*-webkit-transform: scaleX(-1);*/
+    /*transform: scaleX(-1);*/
 }
 
 .h2-deco{
