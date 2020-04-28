@@ -157,6 +157,29 @@ a:visited{
     /*transform: scaleX(-1);*/
 }
 
+
+.controller button{
+    margin-left: 15%;
+    margin-top: 20px;
+    border-radius: 5px;
+    border-style: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #274d6e;
+    box-shadow: #757575 0px 0px 5px;
+    color: white;
+    font-family: 'Abel', sans-serif;
+}
+
+.controller button:hover{
+    background-color: #316088;
+}
+
+.controller button:active{
+    background-color: #1f3d57;
+}
+
 .h2-deco{
     font-size: 48px;
     margin-left: 15%;
